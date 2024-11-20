@@ -31,14 +31,14 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 	position += velocity * delta
 	position=position.clamp(Vector2.ZERO+player_size/2,screen_size-player_size/2)
+	$AnimatedSprite2D.flip_v=velocity.y>0
 	if velocity.x !=0:
 		$AnimatedSprite2D.animation="Walk"
-		$AnimatedSprite2D.flip_h=false
 		$AnimatedSprite2D.flip_h = velocity.x<0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation="Up"
-		$AnimatedSprite2D.flip_v=false
-		$AnimatedSprite2D.flip_v=velocity.y>0
+		$AnimatedSprite2D.flip_h=false
+		
 		
 
 
