@@ -10,7 +10,7 @@ var player_size
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	player_size=$CollisionShape2D.shape.get_rect().size
-	#hide()	
+	hide()	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +46,11 @@ func _on_body_entered(body: Node2D) -> void:
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled",true)
+	
+func start(pos):
+	position=pos
+	show()
+	$CollisionShape2D.disabled=false
 	
 	
 	
